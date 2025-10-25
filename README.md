@@ -48,3 +48,54 @@
    距离<10米的车辆计入该停车点
 
    为停车点添加vehicleCount属性
+
+### 第三步：UI构建
+#### HTML结构设计
+页面标题区域
+
+停车点信息展示容器
+
+采用卡片式布局展示每个停车点
+
+#### CSS样式设计
+进行美观
+
+#### 调用js
+用js动态生成html内容  
+
+
+## 🎨加分项  
+本人后端不是很会，只做了响应式设计
+
+### 手机端：
+
+   单列垂直布局
+
+   更紧凑的卡片设计
+
+   优化的小字体
+
+   最大化内容显示区域
+
+#### 根据以上特点有了css中的代码  
+
+```
+@media (max-width: 480px) {
+    #parking-list {
+        grid-template-columns: 1fr;/*占有可用空间的一列*/
+        gap: 10px;
+    }
+    body {
+        padding: 10px;
+    }
+    .parking-item {
+        padding: 15px;
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+}  
+```
+
