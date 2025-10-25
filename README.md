@@ -24,4 +24,5 @@
 - **HTML**：语义化标签，提高可访问性
 - **CSS**：现代布局（Flexbox/Grid）
 - **Font Awesome**：矢量图标，提升视觉效果
-- **静态部署**：无需后端，部署简单
+- **静态部署**：使用vercel部署
+- [网站]:](https://vercel.com/zhengwanjias-projects/2-let-me-look)
