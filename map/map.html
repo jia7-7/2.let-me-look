@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电动车停车点信息</title>
+    <script src="GjZ0XQvL1GpkuisGRbw2L7ALSZLGeu6F"></script>
+    <link rel="stylesheet" href="map.css"> <!-- 链接CSS文件 -->
+    
+     <!-- 修改点1: 移除Leaflet，引入百度地图API -->
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=GjZ0XQvL1GpkuisGRbw2L7ALSZLGeu6F"></script>
+</head>
+</head>
+<body>
+    <h1>电动车停车点</h1>
+    <div id="parking-list"></div> <!-- 停车点信息将动态插入这里 -->
+    <script src="map.js"></script> <!-- 链接JavaScript文件 -->
+
+    <h1>使用百度地图服务替代OpenStreetMap</h1>
+    <div id="baidu-map" style="width: 100%; height: 80vh; margin: 20px 0;"></div>
+    <script>
+         // 修改点3: 初始化百度地图，替换Leaflet初始化代码
+        // 创建地图实例
+        const map = new BMap.Map("baidu-map");
+        
+        // 设置中心点和缩放级别 - 使用山东大学青岛校区坐标
+        const centerPoint = new BMap.Point(120.684, 36.365);
+        map.centerAndZoom(centerPoint, 15);
+        
+        // 启用滚轮缩放
+        map.enableScrollWheelZoom(true);
+        
+        // 修改点4: 添加山东大学标记，替换原Leaflet标记代码
+        const sdUqPoint = new BMap.Point(120.684, 36.365);
+        const sdUqMarker = new BMap.Marker(sdUqPoint);
+        map.addOverlay(sdUqMarker);
+        
+        const sdUqInfoWindow = new BMap.InfoWindow(`
+            <div style="width: 200px; text-align: center;">
+                <h3 style="margin: 5px 0; font-size: 16px;">山东大学青岛校区</h3>
+                <p style="margin: 3px 0; font-size: 14px;">so big~</p>
+            </div>
+        `);
+        
+        sdUqMarker.addEventListener("click", function() {
+            this.openInfoWindow(sdUqInfoWindow);
+        });
+        
+        // 默认打开信息窗口
+        sdUqMarker.openInfoWindow(sdUqInfoWindow);
+        
+        // 修改点5: 加载并绘制停车区域数据
+        // 注意: 这里假设parkingGeoJSON变量已定义
+        function drawParkingAreas() {
+            parkingGeoJSON.features.forEach(feature => {
+                const coordinates = feature.geometry.coordinates[0];
+                const properties = feature.properties;
+                
+                // 将坐标点转换为BMap.Point对象
+                const points = coordinates.map(coord => 
+                    new BMap.Point(coord[0], coord[1])
+                );
+                
+                // 创建多边形
+                const polygon = new BMap.Polygon(points, {
+                    strokeColor: "#3388ff",
+                    strokeWeight: 2,
+                    strokeOpacity: 0.8,
+                    fillColor: "#3388ff",
+                    fillOpacity: 0.2
+                });
+                
+                // 添加到地图
+                map.addOverlay(polygon);
+                
+                // 添加信息窗口
+                const infoWindow = new BMap.InfoWindow(`
+                    <div style="padding: 10px; min-width: 200px;">
+                        <h3 style="margin: 0 0 10px 0; color: #333;">${properties.name}</h3>
+                        <p style="margin: 5px 0; color: #666;">${properties.address}</p>
+                    </div>
+                `);
+                
+                polygon.addEventListener("click", function() {
+                    this.openInfoWindow(infoWindow);
+                });
+            });
+        }
+        
+        // 修改点6: 加载并绘制车辆数据
+        // 注意: 这里假设vehiclesGeoJSON变量已定义
+        function drawVehicles() {
+            vehiclesGeoJSON.features.forEach(feature => {
+                const coordinates = feature.geometry.coordinates;
+                const properties = feature.properties;
+                
+                const point = new BMap.Point(coordinates[0], coordinates[1]);
+                
+                // 创建标记
+                const marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+                
+                // 添加信息窗口
+                const infoWindow = new BMap.InfoWindow(`
+                    <div style="padding: 10px; min-width: 200px;">
+                        <h3 style="margin: 0 0 10px 0; color: #333;">车辆 ${properties.bike_id}</h3>
+                        <p style="margin: 5px 0; color: #666;">电量: ${properties.battery}%</p>
+                        <p style="margin: 5px 0; color: #666;">状态: ${properties.status}</p>
+                    </div>
+                `);
+                
+                marker.addEventListener("click", function() {
+                    this.openInfoWindow(infoWindow);
+                });
+            });
+        }
+        
+        // 页面加载完成后绘制数据
+        window.onload = function() {
+            // 确保数据已加载后再绘制
+            if (typeof parkingGeoJSON !== 'undefined' && typeof vehiclesGeoJSON !== 'undefined') {
+                drawParkingAreas();
+                drawVehicles();
+            }
+        };
+    </script>
+    <script src="parking-areas.json"></script>
+    <script src="vehicles.json"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6845, 36.3592]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-001",
+                "battery": 87,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6847, 36.3593]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-002",
+                "battery": 42,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6844, 36.3594]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-003",
+                "battery": 95,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6835, 36.3658]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-004",
+                "battery": 63,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6837, 36.3659]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-005",
+                "battery": 29,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6836, 36.3660]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-006",
+                "battery": 78,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6834, 36.3657]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-007",
+                "battery": 15,
+                "status": "待充电"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6822, 36.3626]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-008",
+                "battery": 91,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6824, 36.3627]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-009",
+                "battery": 55,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6823, 36.3628]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-010",
+                "battery": 33,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6821, 36.3625]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-011",
+                "battery": 67,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6825, 36.3626]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-012",
+                "battery": 8,
+                "status": "待充电"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6877, 36.3597]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-013",
+                "battery": 72,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6879, 36.3598]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-014",
+                "battery": 49,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6876, 36.3599]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-015",
+                "battery": 93,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6880, 36.3596]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-016",
+                "battery": 22,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6850, 36.3586]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-017",
+                "battery": 58,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6852, 36.3588]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-018",
+                "battery": 81,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6849, 36.3587]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-019",
+                "battery": 11,
+                "status": "待充电"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6812, 36.3588]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-020",
+                "battery": 66,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6814, 36.3589]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-021",
+                "battery": 37,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6813, 36.3590]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-022",
+                "battery": 98,
+                "status": "可用"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [120.6811, 36.3587]
+            },
+            "properties": {
+                "bike_id": "MT-SDU-023",
+                "battery": 45,
+                "status": "可用"
+            }
+        }
+    ]
+}
