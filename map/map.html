@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>电动车停车点信息</title>
-    <script src="GjZ0XQvL1GpkuisGRbw2L7ALSZLGeu6F"></script>
-    <link rel="stylesheet" href="map.css"> <!-- 链接CSS文件 -->
+    <link rel="stylesheet" href="map.css"> 
     
-     <!-- 修改点1: 移除Leaflet，引入百度地图API -->
+     <!-- 引入百度地图API -->
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=GjZ0XQvL1GpkuisGRbw2L7ALSZLGeu6F"></script>
 </head>
 </head>
@@ -19,7 +18,7 @@
     <h1>使用百度地图服务替代OpenStreetMap</h1>
     <div id="baidu-map" style="width: 100%; height: 80vh; margin: 20px 0;"></div>
     <script>
-         // 修改点3: 初始化百度地图，替换Leaflet初始化代码
+         // 初始化百度地图，替换Leaflet初始化代码
         // 创建地图实例
         const map = new BMap.Map("baidu-map");
         
@@ -30,18 +29,18 @@
         // 启用滚轮缩放
         map.enableScrollWheelZoom(true);
         
-        // 修改点4: 添加山东大学标记，替换原Leaflet标记代码
+        //  添加山东大学标记，替换原Leaflet标记代码
         const sdUqPoint = new BMap.Point(120.684, 36.365);
         const sdUqMarker = new BMap.Marker(sdUqPoint);
         map.addOverlay(sdUqMarker);
-        
+        //BMap.InfoWindow创建信息窗口
         const sdUqInfoWindow = new BMap.InfoWindow(`
             <div style="width: 200px; text-align: center;">
                 <h3 style="margin: 5px 0; font-size: 16px;">山东大学青岛校区</h3>
                 <p style="margin: 3px 0; font-size: 14px;">so big~</p>
             </div>
         `);
-        
+        //点击触发信息窗口
         sdUqMarker.addEventListener("click", function() {
             this.openInfoWindow(sdUqInfoWindow);
         });
@@ -49,8 +48,8 @@
         // 默认打开信息窗口
         sdUqMarker.openInfoWindow(sdUqInfoWindow);
         
-        // 修改点5: 加载并绘制停车区域数据
-        // 注意: 这里假设parkingGeoJSON变量已定义
+        //  加载并绘制停车区域数据
+       
         function drawParkingAreas() {
             parkingGeoJSON.features.forEach(feature => {
                 const coordinates = feature.geometry.coordinates[0];
@@ -87,8 +86,8 @@
             });
         }
         
-        // 修改点6: 加载并绘制车辆数据
-        // 注意: 这里假设vehiclesGeoJSON变量已定义
+        // 加载并绘制车辆数据
+        
         function drawVehicles() {
             vehiclesGeoJSON.features.forEach(feature => {
                 const coordinates = feature.geometry.coordinates;
@@ -115,16 +114,25 @@
             });
         }
         
-        // 页面加载完成后绘制数据
-        window.onload = function() {
-            // 确保数据已加载后再绘制
-            if (typeof parkingGeoJSON !== 'undefined' && typeof vehiclesGeoJSON !== 'undefined') {
+       // 加载JSON数据
+        function loadData() {
+            // 使用fetch API加载数据
+            Promise.all([
+                fetch('parking-areas.json').then(r => r.json()),
+                fetch('vehicles.json').then(r => r.json())
+            ]).then(([parkingData, vehiclesData]) => {
+                parkingGeoJSON = parkingData;
+                vehiclesGeoJSON = vehiclesData;
                 drawParkingAreas();
                 drawVehicles();
-            }
-        };
+            }).catch(error => {
+                console.error('加载数据失败:', error);
+            });
+        }
+
+        // 页面加载完成后加载数据
+        window.onload = loadData;
     </script>
-    <script src="parking-areas.json"></script>
-    <script src="vehicles.json"></script>
+    
 </body>
 </html>
