@@ -106,5 +106,20 @@
 
 （借助了附件中的绝大部分内容与AI，掌握了一点API的知识，比如如何引入，展示加载信息，怎么调用json中的数据）  
 
-一点坎坷：一开始直接用sript引入json发现没有成功，询问AI后用fetch引入收获了成功
+一点坎坷：一开始直接用sript引入json发现没有成功，询问AI后用fetch引入收获了成功  
+
+## 🎨加分项    
+利用提示的infowindows等实现了信息交互功能  
+```
+ // 添加信息窗口
+const infoWindow = new BMap.InfoWindow(`
+   <div style="padding: 10px; min-width: 200px;">
+      <h3 style="margin: 0 0 10px 0; color: #333;">${properties.name}</h3>
+      <p style="margin: 5px 0; color: #666;">${properties.address}</p>
+</div>
+`);
+                
+polygon.addEventListener("click", function() {
+this.openInfoWindow(infoWindow);
+```
 
